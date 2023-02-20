@@ -29,7 +29,7 @@ app.disable('etag');
 
 app.use(express.static("client/build"));
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/client/build/index.js'))
+    res.sendFile(path.join('./client/build/index.js'))
 })
 
 
