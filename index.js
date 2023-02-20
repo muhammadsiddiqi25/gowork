@@ -5,14 +5,17 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import helmet from 'helmet'
 import morgan from 'morgan'
-
+import * as path from 'path'
 
 import authRoutes from './Routes/AuthRoutes.js'
 import empRoutes from './Routes/EmpRoutes.js'
 import generalRoutes from './Routes/generalRoutes.js'
 import AdminRoutes from './Routes/AdminRoutes.js'
 
-
+app.use(express.static("client/build"));
+app.get('*',req,resp=>{
+    resp.send(path.resolve(__dirname,'client','build','index.html'))
+})
 
 // ----------CONFIGS--------------
 dotenv.config()
