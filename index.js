@@ -12,10 +12,7 @@ import empRoutes from './Routes/EmpRoutes.js'
 import generalRoutes from './Routes/generalRoutes.js'
 import AdminRoutes from './Routes/AdminRoutes.js'
 
-app.use(express.static("client/build"));
-app.get('*',req,resp=>{
-    resp.send(path.resolve(__dirname,'client','build','index.html'))
-})
+
 
 // ----------CONFIGS--------------
 dotenv.config()
@@ -29,12 +26,18 @@ app.use(bodyParser.urlencoded({extended:false}))
 app.use(cors())
 app.disable('etag');
 
+app.use(express.static("client/build"));
+app.get('*',req,resp=>{
+    resp.send(path.resolve(__dirname,'client','build','index.html'))
+})
+
 
 
 app.use('/auth',authRoutes)
 app.use('/emp',empRoutes)
 app.use('/',generalRoutes)
 app.use('/admin',AdminRoutes)
+
 
 // -------------MONGOOSE SETUP-----------
 const PORT = parseInt(process.env.PORT) || 9001
