@@ -35,9 +35,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 app.use(express.static(path.resolve(__dirname, "./build")));
 // Step 2:
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "./build", "index.html"));
-});
 
 
 
@@ -45,6 +42,9 @@ app.use('/auth',authRoutes)
 app.use('/emp',empRoutes)
 app.use('/',generalRoutes)
 app.use('/admin',AdminRoutes)
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./build", "index.html"));
+});
 
 
 // -------------MONGOOSE SETUP-----------
