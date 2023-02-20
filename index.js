@@ -33,7 +33,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
-app.get('*', (req, res) => {
+app.get('*', (req, resp) => {
     resp.send(path.resolve(__dirname,'client','build','index.html'))
 })
 
