@@ -6,11 +6,7 @@ import dotenv from 'dotenv'
 import helmet from 'helmet'
 import morgan from 'morgan'
 import path from 'path';
-import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-
-const __dirname = path.dirname(__filename);
 
 import authRoutes from './Routes/AuthRoutes.js'
 import empRoutes from './Routes/EmpRoutes.js'
@@ -32,8 +28,8 @@ app.use(cors())
 app.disable('etag');
 
 app.use(express.static("client/build"));
-app.get('*',(req,resp)=>{
-    resp.send(path.resolve(__dirname,'client','build','index.html'))
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/client/build/index.js'))
 })
 
 
