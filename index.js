@@ -27,7 +27,7 @@ app.use(cors())
 app.disable('etag');
 
 app.use(express.static("client/build"));
-app.get('*',req,resp=>{
+app.get('*',(req,resp)=>{
     resp.send(path.resolve(__dirname,'client','build','index.html'))
 })
 
