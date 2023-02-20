@@ -42,7 +42,7 @@ app.use('/admin',AdminRoutes)
 // -------------MONGOOSE SETUP-----------
 const PORT = parseInt(process.env.PORT) || 9001
 mongoose.set('strictQuery', true);
-mongoose.connect(process.env.MONGO_URL,{
+mongoose.connect("mongodb+srv://msiddiqi:Xvuzh2WVohCH279Y@cluster0.v8mdr1t.mongodb.net?retryWrites=true&w=majority",{
     useNewUrlParser:true,
     useUnifiedTopology:true,
     dbName :'gowork'
