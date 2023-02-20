@@ -30,12 +30,11 @@ app.disable('etag');
 app.use(express.static("client/build"));
 import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-
-const __dirname = path.dirname(__filename);
-app.get('*', (req, resp) => {
-     resp.sendFile(path.resolve(app.get('appPath') + '/client/build/index.html'));
-})
+app.use(express.static(path.resolve(__dirname, "./client/build")));
+// Step 2:
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
 
 
 
