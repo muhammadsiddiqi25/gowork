@@ -5,7 +5,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import helmet from 'helmet'
 import morgan from 'morgan'
-import * as path from 'path'
+import path from 'path'
 
 import authRoutes from './Routes/AuthRoutes.js'
 import empRoutes from './Routes/EmpRoutes.js'
