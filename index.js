@@ -34,7 +34,7 @@ const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
 app.get('*', (req, resp) => {
-    resp.sendFile('index.html')
+     resp.sendFile(path.resolve(app.get('appPath') + '/client/build/index.html'));
 })
 
 
