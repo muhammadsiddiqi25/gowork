@@ -28,6 +28,11 @@ app.use(cors())
 app.disable('etag');
 
 app.use(express.static("client/build"));
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
 app.get('*', (req, res) => {
     res.sendFile(path.join('./client/build/index.js'))
 })
