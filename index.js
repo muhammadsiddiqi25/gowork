@@ -28,7 +28,10 @@ app.use(cors())
 app.disable('etag');
 
 app.use(express.static("client/build"));
+import { dirname } from 'path';
 import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 app.use(express.static(path.resolve(__dirname, "./client/build")));
 // Step 2:
